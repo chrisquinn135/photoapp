@@ -1,0 +1,42 @@
+<div id="main-content"></div>
+
+<div id="searched">
+    <form id="formId" enctype="multipart/form-data">
+        <h1>Post Image</h1>
+        <div class="input-fields">
+            <label for="postName">Post Name</label>
+            <input type="text" id="postName" name="postName">
+            <label for="postDesc">Post Description</label>
+            <input type="text" id="postDesc" name="postDesc">
+            <label for="image">Post Image</label>
+            <input type="file" id="image" name="uploadImage" accept="image/*">
+            <div class="checkbox">
+                <input type="checkbox" id="AUP" name="AUP">
+                <span>Please accept the <a href="" title="acceptable use policy">Acceptable Use Policy</a></span>
+            </div>
+
+            <input type="submit" id="submit" value="Submit">
+            <input type="reset" value="Cancel">
+
+        </div>
+
+        <script>
+            const _form = document.getElementById("formId");
+            _form.onsubmit = function (event) {
+                event.preventDefault();
+                let _body = new FormData(_form);
+                axios('/posts/createPost', {                // send data to server
+                    data: _body,
+                    method: "POST"
+                })
+                    .then((data) => {
+                        console.log(data.data);
+                        alert(data.data.message);
+                        location.replace(data.data.redirect);
+                    })
+                    .catch(err => console.log(err));
+            };
+        </script>
+    </form>
+
+</div>

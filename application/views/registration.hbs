@@ -1,0 +1,51 @@
+<div id="main-content"></div>
+<div id="searched">
+    <form id='form' method="POST" action="/users/register" enctype="application/x-www-form-urlencoded">
+        <h1>Registration Form</h1>
+        <div class="input-fields">
+            <label for="userName">Input Username</label>
+            <input type="text" id="userName" name="username" required="">
+            <label for="email">Input Email</label>
+            <input type="email" id="email" name="email" required="">
+            <label for="password">Input Password</label>
+            <input type="password" id="password" name="password" type="password" required="">
+            <label for="password">Confirm Password</label>
+            <input type="password" id="conPass" name="cpassword" type="password" required="">
+            <div class="checkbox">
+                <input type="checkbox" id="age" required="">
+                <span>I am 13 years of age or older</span>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="tos" required="">
+                <span>Please accept the <a href="" title="TOS Rules">TOS</a>
+                    and <a href="" title="Privacy Rules">PRIVACY RULES</a></span>
+            </div>
+            <input type="submit" id="submit" value="Submit">
+            <input type="reset" value="Cancel">
+        </div>
+    </form>
+
+
+    <div id="userNameMessage">
+        <p id="uFirstLetter" class="invalid">Username begins with a letter</p>
+        <p id="uThreeChar" class="invalid">Username has at least 3 alphanumeric characters</p>
+    </div>
+
+    <div id="passwordValidMessage">
+        <p id="pValid" class="invalid">Passwords are both equal</p>
+    </div>
+
+    <div id="emailValidMessage">
+        <p id="eValid" class="invalid">Email must be valid</p>
+    </div>
+
+    <div id="passwordMessage">
+        <p id="pCapital" class="invalid">Password contains an uppercase letter</p>
+        <p id="pNumber" class="invalid">Password contains an number</p>
+        <p id="pLower" class="invalid">Password contains a lowercase letter</p>
+        <p id="pSpecial" class="invalid">Password contains a special character: / * - + ! @
+            # $ ^ & * </p>
+        <p id="pEightChar" class="invalid">Password has at least 8 characters</p>
+    </div>
+
+</div>

@@ -1,0 +1,85 @@
+<div id="main-content"></div>
+<div id="searched">
+    <div id="post-container">
+        <div id="photo-container">
+            <div id="info">
+                <header id="image-post-title">
+                    <h2 id="image-post-title-text">{{currentPost.title}}</h2>
+                </header>
+                <div id="image-post-author" class="info-tags">Author: {{currentPost.username}}</div>
+                <div id="image-post-date" class="info-tags">Created: {{currentPost.created}}</div>
+                <div id="image-post-desc" class="info-tags">{{currentPost.description}}</div>
+            </div>
+            <div id="photospace">
+                <img id="image-post-image" src="/{{currentPost.photopath}}">
+            </div>
+            
+        </div>
+
+        <div id="messages">
+            <header id="comment-title">
+                <h2>Comments</h2>
+                {{log this}}
+            </header>
+            <div id="message-list">
+                {{#each currentPost.comments}}
+                {{> comments this}}
+                {{/each}}
+            </div>
+            <div id="comment-box">
+                <textarea id="comment-box-text"></textarea>
+                <i id="comment-box-button" class="fa fa-comment" aria-hidden="true" style="text-align: center"></i>
+            </div>
+        </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('span[class=date-posted]').forEach((postedDate) => {
+            postedDate.textContent = new Date(postedDate.textContent).toLocaleString();
+        })
+    })
+
+    function addMessage(data) {
+        let template = document.createElement('template');
+        template.innerHTML =
+            `<div id="message-${data.commentId}">
+                <strong class="author-text">@${data.username}</strong>
+                <span class="date-posted">${new Date().toLocaleString()}</span>
+                <div class="comment-text">${data.comment}</div>
+            </div>`;
+        document.getElementById('message-list').firstChild.before(template.content.firstChild);
+    }
+
+    document.getElementById('comment-box-button').onclick = (event) => {
+        let commentText = document.getElementById('comment-box-text').value;
+        let postId = document.location.pathname.match(/\d+/g).map(Number)[0];
+
+        if (!commentText) {
+            return;
+        }
+
+        let fetchOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "Application/json"
+            },
+            body: JSON.stringify({
+                comment: commentText,
+                postId: postId,
+            })
+        }
+        fetch('/comments/create', fetchOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.code == 1) {
+                    addMessage(data);
+                } else {
+                    addFlashFromFrontEnd(data.message, data.status);
+                }
+            })
+            .catch(err => console.log(err));
+
+    }
+</script>
+</div>
+

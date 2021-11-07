@@ -1,0 +1,413 @@
+body {
+    margin: 0px;
+    background-color: #fafafa;
+    font-family: Georgia, serif;
+    display: grid;
+}
+
+#flash-message {
+    position: fixed;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%,0);
+    background-color: aquamarine;
+    border: aquamarine 5px;
+    border-radius: 2px;
+}
+
+#flash-message div {
+    text-align: center;
+}
+
+#banner {  
+    display: grid;                                                                                  /* banner */
+    background-color: black;
+    justify-content: center;
+    align-content: center;
+   
+}
+
+#banner-text {
+    font-size: 30px;
+    color: white;
+}
+
+#nav-bar {                                                                                  /* nav bar */
+    background-color: rgb(53, 53, 88);
+    display: grid;
+    grid-template-columns: 1fr 10fr .5fr 1fr 1fr;
+    padding: 5px;
+}
+
+.nav-items{
+    display: grid;
+    color: white;   
+    border: .1rem solid white;
+    justify-content: center;
+    align-content: center;;
+    margin: 0px 4px;
+    border-radius: .25rem;
+}
+
+#footer {                                                                                   /* footer */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(53, 53, 88);
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+#search-button {
+    display:grid;
+    text-align: center;
+    justify-content: center;
+    background-color: blue;
+}
+
+
+.container {                                                                                    /* container grid for page layout */
+    display: grid;
+    grid-template-rows: 110px 40px 4fr;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    
+}
+
+input[type=submit] {                                                                            /* input buttons */
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: rgb(74, 74, 255);
+    padding: 0px 0px;
+    border: 0px;
+    border-radius: .25rem;
+}
+
+input[type=reset] {
+    color: white;
+    background: rgb(255, 92, 92);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 15px 0px;
+    border: 0px;
+    border-radius: .25rem;
+}
+
+form {                     
+    background-color: #eeeeee;                                                                                     /* used for formatting the grid of the input fields */
+    display: grid;
+    grid-template-rows: 150px 1fr;
+    padding: 15px;
+    justify-self: center;
+    border: .1rem solid #cccccc;
+    border-radius: .25rem;
+    margin-top: 100px;
+}
+
+.input-fields {
+    display: grid;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: repeat(1fr);
+    grid-gap: 15px 5px;
+    text-align: left;
+    justify-self: center;
+}
+
+.input-fields label {
+    display: grid;
+    border: 1px solid #cccccc;
+    color: rgb(85, 85, 85);
+    border-radius: 2px;
+    align-items: center;
+    justify-content: center; 
+    padding: 3px;
+    background-color: rgb(224, 224, 224);
+
+}
+
+#searched {
+    display: grid;
+}
+
+#main-content {                                         /* home page */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.card {
+    display: grid;
+    grid-template-rows: 200px 120px;
+    grid-template-columns: auto;
+    border: .0825rem solid #cccccc;
+    box-shadow: 0 2px 2 px #dfdede;
+}
+
+.card-image {
+    grid-area: 1/1/2/2;
+}
+
+div[class=card] > img {
+    height: 100%;
+    width: 100%;
+}
+
+.card-body {
+    background-color: rgb(53, 53, 88);
+    color:rgb(224, 224, 224);
+    text-align: center;
+}
+
+.anchor-buttons {
+    align-items: center;
+}
+
+.not-index {
+    display: grid;
+    align-self: center;
+    justify-items: center;
+
+}
+
+#post-container {                               /* image post */
+    padding-top: .35em;
+    padding-bottom: .35em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 3px;
+    margin-top: 10px;
+    grid-gap: .2rem;
+    max-height: 75vh;
+    min-height: 75vh;
+    grid-template-areas: 
+    "photoinfo comments"
+    "photoinfo comments";
+}
+
+#image-post-image{
+    max-height: 60vh;
+    min-height: 60vh;
+    display: grid;
+
+}
+
+header {
+    display: grid;
+    background-color: rgb(53, 53, 88);
+    color: white;
+    align-content: center;
+    text-align: center;
+}
+
+#photospace {
+    display:grid;
+    justify-items: center;
+}
+
+#info-message-grid {
+    display: grid;
+}
+
+#photo-container {
+    display: grid;
+    grid-area: photoinfo;
+    margin-top: 0px;
+}
+
+
+
+#info {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 65px 1fr 1fr ;
+    text-align: center;
+    border: .0825rem solid #cccccc;
+
+}
+
+#image-post-title {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+#image-post-desc {
+    grid-row: 3;
+    grid-column: 1;
+}
+
+.info-tags {
+    display: grid;
+    align-self: center;
+    font-size: smaller;
+}
+
+div[id^=message-] {
+    display: grid;
+    grid-template-rows: .3fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap:.2em;
+    padding:.25rem;
+    margin: .2rem;
+    font-size: 1rem;
+    border: 0.0625rem solid #ced4da;
+    border-radius: .25rem;
+    grid-template-areas: 
+    "author created"
+    "comment comment";
+}
+
+.author-text {
+    grid-area: author;
+    color: blue;
+    justify-self: start;
+}
+
+.date-posted {
+    grid-area: created;
+    justify-self: right;
+}
+
+.comment-text {
+    grid-area: comment;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 60px;
+    min-height: 30px;
+    justify-self: left;
+}
+
+#messages {
+    display: flex;
+    flex-direction: column;
+    justify-self: stretch;
+    grid-area: comments;
+    grid-template-rows: 50px auto 75px;
+    grid-template-columns: 1fr;
+    gap: .2rem;
+    grid-template-areas: 
+    "comment-title"
+    "message-list"
+    "comment-box";
+    max-height: 75vh;
+    min-height: 75vh;
+}
+
+#message-list {
+    grid-area: message-list;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    scroll-behavior: smooth;
+    border: 1px solid #cccccc;
+    box-shadow: -2px 2px 4px 4px #e0e0e0;
+    border-radius: .35rem;
+    max-height: 60vh;
+    min-height: 60vh;
+
+
+}
+
+.checkbox, .register-button {
+    grid-column: 1/3;
+}
+
+.register-button {
+    font-size: 13px;
+}
+
+#comment-box {
+    background-color: rgb(53, 53, 88);
+    display: grid;
+    align-self: baseline;
+    align-self: stretch;
+    grid-template-columns: 910px 50px;
+}
+#comment-box-text {
+    
+    background-color: white;
+
+}
+
+#comment-box-button {
+    border: white;
+    display:grid;
+    align-content: center;
+}
+ 
+#userNameMessage {
+    display: none;
+    background: #f1f1f1;
+    color: #000;
+    position: right;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+#passwordMessage {
+    display: none;
+    background: #f1f1f1;
+    color: #000;
+    position: right;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+#passwordValidMessage {
+    display: none;
+    background: #f1f1f1;
+    color: #000;
+    position: right;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+#emailValidMessage {
+    display: none;
+    background: #f1f1f1;
+    color: #000;
+    position: right;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+  
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+  .valid {
+      color: green;
+  }
+
+  .invalid {
+      color: red;
+  }
+
+  .valid:before {
+    position: right;
+    left: -35px;
+    /*content: "&#10004;";*/
+  }
+
+  .invalid:before {
+    position: right;
+    left: -35px;
+    /*content: "&#10006;";*/
+  }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/public/css/form.css">
+  <title>{{title}}</title>
+  <script defer type="text/javascript" src='/public/js/formValidation.js'></script>
+  <script defer type="text/javascript" src='/public/js/frontend.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/1a9114ef35.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    {{> banner}}
+    {{#if (emptyObject messages)}}
+      {{> flashmessage}}
+    {{/if}}
+    {{> nav}}
+    {{{body}}}
+    {{>footer}}
+  </div>
+
+  {{#if logged}}
+    <script>
+      let ele = document.getElementById('log-out-button');
+        if(ele) {
+          ele.onclick = (even) => {
+            fetch('/users/logout', {
+              method:"POST"
+            })
+            .then((data) => {
+              location.replace('/');
+            })
+          }
+        }
+    </script>
+  {{/if}}
+</body>
+
+</html>

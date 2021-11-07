@@ -1,0 +1,17 @@
+<nav id="nav-bar">
+    <!--<div id="brand" class="nav-items">
+        <a href="/" id="brand-anchor"><span id="brand-text"><i style="margin-right: .2rem;">c</i>PA</span></a>
+
+    </div>-->
+    <a href="/" id="post-button" class="nav-items anchor-buttons">Home</a>
+    <input id="search-text" name="search-text" type="text">
+    <i id="search-button" class="fas fa-search nav-items"></i>
+    <a href="/postimage" id="post-button" class="nav-items anchor-buttons">Post</a>
+
+    {{#if logged}} 
+    <a id='log-out-button' class="nav-items anchor-buttons">Log out</a>
+    {{else}}
+    <a href="/login" id="post-button" class="nav-items anchor-buttons">Log in</a>
+    {{/if}}
+
+</nav>
